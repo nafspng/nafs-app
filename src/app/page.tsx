@@ -26,7 +26,7 @@ export default function WelcomePage() {
     }
   }, [isLoaded, completed, catName, router])
 
-  const isReturningUser = completed && catName
+  const isReturningUser = Boolean(completed && catName)
 
   return (
     <div

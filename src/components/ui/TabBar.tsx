@@ -10,11 +10,18 @@ import { usePathname } from 'next/navigation'
 import { useOnboarding } from '@/hooks'
 import { theme } from '@/lib/theme'
 
-const TABS = [
+type TabConfig = {
+  href: string
+  label?: string
+  labelKey?: 'catName'
+  icon: string
+}
+
+const TABS: TabConfig[] = [
   { href: '/home', label: 'Home', icon: '🏠' },
   { href: '/charity', label: 'Charity', icon: '🤲' },
-  { href: '/cat', labelKey: 'catName', icon: '🐱' }, // label from cat name
-] as const
+  { href: '/cat', labelKey: 'catName', icon: '🐱' },
+]
 
 export function TabBar() {
   const pathname = usePathname()
